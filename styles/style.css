@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Smurf";
+  src:
+    url("../fonts/Bazinga-Regular.otf") format("opentype"),
+}
+
 /**************/
 /* CSS REMEDY */
 /**************/
@@ -9,14 +15,12 @@
 
 body {
   margin:0;
+	height:100vh;
+	width:100%;
 }
 
 button:not([disabled]) {
   cursor:pointer;
-}
-
-img {
-  max-width:100%;
 }
 
 
@@ -28,9 +32,7 @@ img {
 /*********************/
 
 :root {
-  --color-headings:crimson
-  /* ... */
-
+  --color-headings:#0055A4;
 }
 
 
@@ -41,10 +43,39 @@ img {
 /* ALGEMENE STYLING */
 /********************/
 
-h1 {
-  color:var(--color-headings);
+header{
+  position:fixed;
+	left:2em;
+	top:1em;
+	margin:0;
 }
 
-/* ... */
+h1 {
+  color:var(--color-headings);
+  font-family: Smurf, Arial, Helvetica, sans-serif;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 1);
+}
 
+ol{
+  background-image: url('../images/achtergrondBos.png');
+  background-size:475em 180em;
+  background-repeat:no-repeat;
+  background-position:left bottom;
+  margin:0;
+  padding:2em;
+  list-style:none;
+  height:100vh;
+  display:flex;
+  align-items:end;
+  width:180em;
+}
 
+ol li{
+  width:28vw;
+	flex-shrink:0;
+}
+
+ol li img{
+  width: 22vw;
+}
