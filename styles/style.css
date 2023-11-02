@@ -68,14 +68,73 @@ ol{
   height:100vh;
   display:flex;
   align-items:end;
-  width:180em;
+  width:475em;
 }
 
 ol li{
-  width:28vw;
+  width:46em;
 	flex-shrink:0;
+  display: flex;
+  align-items: end;
 }
 
-ol li img{
-  width: 22vw;
+ol li>img{
+  width: 28em;
 }
+
+/* De huisjes wat hoger/lager */
+ol li:nth-of-type(1)>img{
+  translate: 0 -3em;
+}
+
+ol li:nth-of-type(2)>img{
+  translate: 0 -1.5em;
+}
+
+ol li:nth-of-type(4)>img{
+  translate: 0 -2em;
+}
+
+
+
+/* Voor de smurfen en het tekstwolkje */
+figure img{
+  width: 6em;
+}
+
+figcaption{
+  background-color: white;
+  padding: 2em;
+  border: solid black 1px;
+  border-radius: 10em;
+  position: absolute;
+  bottom: 12em;
+  opacity: 0;
+}
+
+figure:hover figcaption{
+  opacity: 100%;
+}
+
+figcaption::after{
+  content: "";
+  clip-path: polygon(27% 59%, 28% 73%, 40% 59%);
+  background-color: white;
+  position: absolute;
+  width: 4em;
+}
+
+
+
+
+/* Smurfen achteraan  */
+ol li:nth-of-type(9) img:nth-of-type(1){
+  width: 6em;
+}
+
+ol li:nth-of-type(9) img:nth-of-type(2){
+  width: 11em;
+}
+
+
+
