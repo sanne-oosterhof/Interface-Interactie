@@ -4,6 +4,26 @@
     url("../fonts/Bazinga-Regular.otf") format("opentype"),
 }
 
+@font-face {
+  font-family: 'proximaNova';
+  src: url('../fonts/rene_bieder__milliard_medium-webfont.woff2') format('woff2'),
+       url('../fonts/rene_bieder__milliard_medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proximaNovaLight';
+  src: url('../fonts//rene_bieder__milliard_light-webfont.woff2') format('woff2'),
+       url('../fonts/rene_bieder__milliard_light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
 /**************/
 /* CSS REMEDY */
 /**************/
@@ -43,7 +63,7 @@ button:not([disabled]) {
 
 
 /********************/
-/* ALGEMENE STYLING */
+/*      HEADER      */
 /********************/
 
 header{
@@ -69,6 +89,10 @@ h1 span{
 
 /* muziek button met img  */
 header section button{
+  display: flex;
+  align-items: center;
+  font-family: proximaNova, Arial, Helvetica, sans-serif;
+  padding: .2em 1.2em .2em .8em;
   border-radius: 1em;
   background-color: var(--smurf-color-light);
   margin-left: 3em;
@@ -157,6 +181,9 @@ header h1:hover span:nth-of-type(7) {
 
 
 
+/********************/
+/*       MAIN       */
+/********************/
 main ol{
   background-image: url('../images/achtergrondBos.png');
   background-size:475em 180em;
@@ -172,27 +199,15 @@ main ol{
 }
 
 main ol li{
-  width:46em;
+  width: 38.5em;
 	flex-shrink:0;
   display: flex;
   align-items: end;
+  margin: 0 8em 0 0;
 }
 
 main ol li>img{
-  width: 28em;
-}
-
-/* De huisjes wat hoger/lager */
-main ol li:nth-of-type(1)>img{
-  translate: 0 -3em;
-}
-
-main ol li:nth-of-type(2)>img{
-  translate: 0 -1.5em;
-}
-
-main ol li:nth-of-type(4)>img{
-  translate: 0 -2em;
+  width: 32em;
 }
 
 
@@ -203,17 +218,18 @@ figure{
 }
 
 figure img{
-  width: 6em;
+  width: 6.5em;
 }
 
 figcaption{
+  font-family: proximaNovaLight, Arial, Helvetica, sans-serif;
   background-color: var(--bg-color);
-  padding: 2em;
+  padding: 1.2em;
   border: solid var(--border-color) 1px;
-  border-radius: 10em;
+  border-radius: 1.5em;
   position: absolute;
   bottom: 12em;
-  width: 12em;
+  width: 12.5em;
   opacity: 0;
 }
 
@@ -225,17 +241,118 @@ figcaption::after{
   content: "";
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 100% 0);
   background-color: var(--bg-color);
-  /* background-color: red; */
   position: absolute;
   left:2.5em;
   top:calc(100% - .7126em - 1px);
   width: 1.5em;
   height:1.5em;
-
   transform: rotate(45deg) skew(20deg, 20deg);
   border:solid 1px black;
 }
 
+
+
+/* De huisjes, grote smurf en tekstwolk op de juiste plek */
+/* List item 1 */
+main ol li:nth-of-type(1)>img{
+  translate: 0 -4em;
+}
+
+main ol li:nth-of-type(1) figure img{
+  translate: 0 -4em;
+}
+
+main ol li:nth-of-type(1) figure figcaption{
+    bottom: 17.5em;
+}
+
+/* List item 2 */
+main ol li:nth-of-type(2)>img{
+  translate: 0 -1em;
+}
+
+main ol li:nth-of-type(2) figure img{
+  translate: 0 -3em;
+}
+
+main ol li:nth-of-type(2) figure figcaption{
+    bottom: 16em;
+}
+
+/* List item 3 */
+main ol li:nth-of-type(3)>img{
+  translate: 0 -3.5em;
+}
+
+main ol li:nth-of-type(3) figure img{
+  translate: 0 -3.2em;
+}
+
+main ol li:nth-of-type(3) figure figcaption{
+    bottom: 16.6em;
+}
+
+/* List item 4 */
+main ol li:nth-of-type(4) figure img{
+  translate: 0 -1.4em;
+  width: 8.3em;
+}
+
+main ol li:nth-of-type(4) figure figcaption{
+    bottom: 13.9em;
+}
+
+/* List item 5 */
+main ol li:nth-of-type(5)>img{
+  translate: 0 -2.3em;
+}
+
+main ol li:nth-of-type(5) figure img{
+  translate: 0 -2.5em;
+}
+
+main ol li:nth-of-type(5) figure figcaption{
+    bottom: 15.8em;
+}
+
+/* List item 6 */
+main ol li:nth-of-type(6)>img{
+  translate: 0 -.2em;
+}
+
+main ol li:nth-of-type(6) figure img{
+  translate: 0 -1.5em;
+}
+
+main ol li:nth-of-type(6) figure figcaption{
+    bottom: 15.2em;
+}
+
+/* List item 7 */
+main ol li:nth-of-type(7)>img{
+  translate: 0 -4em;
+}
+
+main ol li:nth-of-type(7) figure img{
+  translate: 0 -4em;
+}
+
+main ol li:nth-of-type(7) figure figcaption{
+    bottom: 17.5em;
+}
+
+/* List item 8 */
+main ol li:nth-of-type(8)>img{
+  translate: 0 -2em;
+}
+
+main ol li:nth-of-type(8) figure img{
+  translate: 0 -3em;
+}
+
+main ol li:nth-of-type(8) figure figcaption{
+    bottom: 17em;
+}
 
 
 
@@ -247,6 +364,3 @@ main ol li:nth-of-type(9) img:nth-of-type(1){
 main ol li:nth-of-type(9) img:nth-of-type(2){
   width: 11em;
 }
-
-
-

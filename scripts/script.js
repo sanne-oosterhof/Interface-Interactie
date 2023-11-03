@@ -4,12 +4,13 @@ var geluidButton = document.querySelector("header section button");
 var geluidImg = document.querySelector("header section button img");
 var geluid = document.querySelector("header section audio");
 
-var isPlaying = false;
+var speelAf = false;
+// Voor regel 7, 13 en 21 bron ChatGPT, voor prompt zie miro
 
 geluidButton.onclick = smurfIntro;
 
 function smurfIntro() {
-  if (isPlaying) {
+  if (speelAf) {
     geluid.pause();
     geluidImg.src = "images/muzieksmurf.png";
   } else {
@@ -17,5 +18,5 @@ function smurfIntro() {
     geluidImg.src = "images/muzieksmurfActief.png";
   }
 
-  isPlaying = !isPlaying;
+  speelAf = !speelAf;
 }
