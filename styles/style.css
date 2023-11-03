@@ -7,7 +7,6 @@
 /**************/
 /* CSS REMEDY */
 /**************/
-
 /* naar een idee van Jen Simmons */
 *, *::after, *::before {
   box-sizing:border-box;  
@@ -32,7 +31,11 @@ button:not([disabled]) {
 /*********************/
 
 :root {
-  --color-headings:#0055A4;
+  --header-primary-color:#0055A4;
+  --header-text-shadow:#FFFFFF;
+  --bg-color:#FFFFFF;
+  --border-color:#1b1b1b;
+  --smurf-color-light:#afe3ff;
 }
 
 
@@ -45,19 +48,116 @@ button:not([disabled]) {
 
 header{
   position:fixed;
+  display: flex;
 	left:2em;
-	top:1em;
+	top:2em;
 	margin:0;
 }
 
 h1 {
-  color:var(--color-headings);
+  color:var(--header-primary-color);
   font-family: Smurf, Arial, Helvetica, sans-serif;
   font-size: 2.5em;
-  text-shadow: 2px 2px 0px rgba(255, 255, 255, 1);
+  text-shadow: 2px 2px 0px var(--header-text-shadow);
+  margin: 0;
 }
 
-ol{
+h1 span{
+  margin: 0;
+  padding: 0;
+}
+
+/* muziek button met img  */
+header section button{
+  border-radius: 1em;
+  background-color: var(--smurf-color-light);
+  margin-left: 3em;
+}
+
+header section button img{
+  width: 4em;
+}
+
+/* animatie van het woord 'smurfen' */
+/* Bron https://codepen.io/alvarotrigo/pen/xxLvyOG?editors=1100 */
+header h1:hover span:nth-of-type(1) {
+  display: inline-block;
+  animation-name: springen;
+  animation-duration: 1s;
+  animation-iteration-count:infinite;
+}
+
+header h1:hover span:nth-of-type(2) {
+  display: inline-block;
+  animation-name: springen;
+  animation-duration: 1s;
+  animation-delay: .15s;
+  animation-iteration-count:infinite;
+}
+
+header h1:hover span:nth-of-type(3) {
+  display: inline-block;
+  animation-name: springen;
+  animation-duration: 1s;
+  animation-delay: .3s;
+  animation-iteration-count:infinite;
+}
+
+header h1:hover span:nth-of-type(4) {
+  display: inline-block;
+  animation-name: springen;
+  animation-duration: 1s;
+  animation-delay: .45s;
+  animation-iteration-count:infinite;
+}
+
+header h1:hover span:nth-of-type(5) {
+  display: inline-block;
+  animation-name: springen;
+  animation-duration: 1s;
+  animation-delay: .6s;
+  animation-iteration-count:infinite;
+}
+
+header h1:hover span:nth-of-type(6) {
+  display: inline-block;
+  animation-name: springen;
+  animation-duration: 1s;
+  animation-delay: .75s;
+  animation-iteration-count:infinite;
+}
+
+header h1:hover span:nth-of-type(7) {
+  display: inline-block;
+  animation-name: springen;
+  animation-duration: 1s;
+  animation-delay: .9s;
+  animation-iteration-count:infinite;
+}
+
+@keyframes springen {
+  0% {
+    transform:tanslateY(0);
+    animation-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  }
+
+  5% {
+    transform:translateY(0) scale(1.2, 0.8);
+  }  
+  
+  50%{
+    transform:translateY(-1em);
+    animation-timing-function:cubic-bezier(0.895, 0.030, 0.685, 0.220);
+  }
+  
+  100% {
+    transform:tanslateY(0);
+  }  
+}
+
+
+
+main ol{
   background-image: url('../images/achtergrondBos.png');
   background-size:475em 180em;
   background-repeat:no-repeat;
@@ -71,44 +171,49 @@ ol{
   width:475em;
 }
 
-ol li{
+main ol li{
   width:46em;
 	flex-shrink:0;
   display: flex;
   align-items: end;
 }
 
-ol li>img{
+main ol li>img{
   width: 28em;
 }
 
 /* De huisjes wat hoger/lager */
-ol li:nth-of-type(1)>img{
+main ol li:nth-of-type(1)>img{
   translate: 0 -3em;
 }
 
-ol li:nth-of-type(2)>img{
+main ol li:nth-of-type(2)>img{
   translate: 0 -1.5em;
 }
 
-ol li:nth-of-type(4)>img{
+main ol li:nth-of-type(4)>img{
   translate: 0 -2em;
 }
 
 
 
 /* Voor de smurfen en het tekstwolkje */
+figure{
+  z-index: 1;
+}
+
 figure img{
   width: 6em;
 }
 
 figcaption{
-  background-color: white;
+  background-color: var(--bg-color);
   padding: 2em;
-  border: solid black 1px;
+  border: solid var(--border-color) 1px;
   border-radius: 10em;
   position: absolute;
   bottom: 12em;
+  width: 12em;
   opacity: 0;
 }
 
@@ -118,21 +223,28 @@ figure:hover figcaption{
 
 figcaption::after{
   content: "";
-  clip-path: polygon(27% 59%, 28% 73%, 40% 59%);
-  background-color: white;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 100% 0);
+  background-color: var(--bg-color);
+  /* background-color: red; */
   position: absolute;
-  width: 4em;
+  left:2.5em;
+  top:calc(100% - .7126em - 1px);
+  width: 1.5em;
+  height:1.5em;
+
+  transform: rotate(45deg) skew(20deg, 20deg);
+  border:solid 1px black;
 }
 
 
 
 
 /* Smurfen achteraan  */
-ol li:nth-of-type(9) img:nth-of-type(1){
+main ol li:nth-of-type(9) img:nth-of-type(1){
   width: 6em;
 }
 
-ol li:nth-of-type(9) img:nth-of-type(2){
+main ol li:nth-of-type(9) img:nth-of-type(2){
   width: 11em;
 }
 
