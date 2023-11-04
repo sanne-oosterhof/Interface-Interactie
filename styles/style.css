@@ -53,13 +53,91 @@ button:not([disabled]) {
 :root {
   --bg-color:#FFFFFF;
   --header-primary-color:#0055A4;
+  --header-secondary-color:#767676;
   --header-text-shadow:#FFFFFF;
-  --text-color: #1b1b1b;
+  --text-color-light: #ffffff;
   --text-color: #1b1b1b;
   --border-color:#1b1b1b;
   --smurf-color-light:#afe3ff;
   --hover-button: linear-gradient(90deg, rgba(15, 109, 198, 1) 0%, rgba(26, 133, 233, 1) 50%, rgba(194, 225, 255, 100) 50%, rgba(194, 225, 255, 100) 100%);
 }
+
+/* DONKER THEMA */
+.darkmode {
+  --bg-color:#FFFFFF;
+  --header-primary-color:#a40000;
+  --header-secondary-color:#767676;
+  --header-text-shadow:#FFFFFF;
+  --text-color-light: #ffffff;
+  --text-color: #1b1b1b;
+  --border-color:#1b1b1b;
+  --smurf-color-light:#afe3ff;
+  --hover-button: linear-gradient(90deg, rgba(15, 109, 198, 1) 0%, rgba(26, 133, 233, 1) 50%, rgba(194, 225, 255, 100) 50%, rgba(194, 225, 255, 100) 100%);
+}
+
+
+/* bron voor de toggle switch: https://www.w3schools.com/howto/howto_css_switch.asp  */
+header label {
+  position: relative;
+  display: inline-block;
+  width: 3.75em;
+  height: 2.125em;
+}
+
+/* Hide default HTML checkbox */
+header label input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+header label span{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 2.125em;
+}
+
+header label span:before {
+  position: absolute;
+  content: "";
+  height: 1.625em;
+  width: 1.625em;
+  left: 0.25em;
+  bottom: 0.25em;
+  background-color: var(--bg-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+
+}
+
+input:checked + span {
+  background-color: var(--header-secondary-color);
+}
+
+input:focus + span  {
+  box-shadow: 0 0 1px var(--header-secondary-color);
+}
+
+input:checked + span:before {
+  -webkit-transform: translateX(1.625em);
+  -ms-transform: translateX(1.625em);
+  transform: translateX(1.625em);
+}
+
+
+
+
+
+
+
 
 
 
@@ -110,7 +188,7 @@ header section button{
 
 header section button:hover{
 	background-position: 0% 0%;
-  color: var(--header-text-shadow);
+  color: var(--text-color-light);
 }
 
 header section button img{
@@ -193,6 +271,7 @@ header h1:hover span:nth-of-type(7) {
     40%, 100% {
       transform: rotateZ(0);
     }
+  }
 }
 
 
