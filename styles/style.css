@@ -51,11 +51,14 @@ button:not([disabled]) {
 /*********************/
 
 :root {
+  --bg-color:#FFFFFF;
   --header-primary-color:#0055A4;
   --header-text-shadow:#FFFFFF;
-  --bg-color:#FFFFFF;
+  --text-color: #1b1b1b;
+  --text-color: #1b1b1b;
   --border-color:#1b1b1b;
   --smurf-color-light:#afe3ff;
+  --hover-button: linear-gradient(90deg, rgba(15, 109, 198, 1) 0%, rgba(26, 133, 233, 1) 50%, rgba(194, 225, 255, 100) 50%, rgba(194, 225, 255, 100) 100%);
 }
 
 
@@ -65,7 +68,6 @@ button:not([disabled]) {
 /********************/
 /*      HEADER      */
 /********************/
-
 header{
   position:fixed;
   display: flex;
@@ -87,15 +89,28 @@ h1 span{
   padding: 0;
 }
 
-/* muziek button met img  */
+/* muziek button met img en animatie */
 header section button{
+  background: var(--hover-button);
+  background-size: 200% 100%;
+  background-position: 100% 0%;
+	transition: .3s;
+
+  animation: schudden 2s linear ;
+  animation-delay: 7s;
   display: flex;
   align-items: center;
   font-family: proximaNova, Arial, Helvetica, sans-serif;
   padding: .2em 1.2em .2em .8em;
   border-radius: 1em;
-  background-color: var(--smurf-color-light);
+  color: var(--text-color);
   margin-left: 3em;
+}
+
+
+header section button:hover{
+	background-position: 0% 0%;
+  color: var(--header-text-shadow);
 }
 
 header section button img{
@@ -104,7 +119,7 @@ header section button img{
 
 /* animatie van het woord 'smurfen' */
 /* Bron https://codepen.io/alvarotrigo/pen/xxLvyOG?editors=1100 */
-header h1:hover span:nth-of-type(1) {
+header h1:hover span{
   display: inline-block;
   animation-name: springen;
   animation-duration: 1s;
@@ -112,72 +127,75 @@ header h1:hover span:nth-of-type(1) {
 }
 
 header h1:hover span:nth-of-type(2) {
-  display: inline-block;
-  animation-name: springen;
-  animation-duration: 1s;
   animation-delay: .15s;
-  animation-iteration-count:infinite;
 }
 
 header h1:hover span:nth-of-type(3) {
-  display: inline-block;
-  animation-name: springen;
-  animation-duration: 1s;
   animation-delay: .3s;
-  animation-iteration-count:infinite;
 }
 
 header h1:hover span:nth-of-type(4) {
-  display: inline-block;
-  animation-name: springen;
-  animation-duration: 1s;
   animation-delay: .45s;
-  animation-iteration-count:infinite;
 }
 
 header h1:hover span:nth-of-type(5) {
-  display: inline-block;
-  animation-name: springen;
-  animation-duration: 1s;
   animation-delay: .6s;
-  animation-iteration-count:infinite;
 }
 
 header h1:hover span:nth-of-type(6) {
-  display: inline-block;
-  animation-name: springen;
-  animation-duration: 1s;
   animation-delay: .75s;
-  animation-iteration-count:infinite;
 }
 
 header h1:hover span:nth-of-type(7) {
-  display: inline-block;
-  animation-name: springen;
-  animation-duration: 1s;
   animation-delay: .9s;
-  animation-iteration-count:infinite;
 }
 
-@keyframes springen {
-  0% {
-    transform:tanslateY(0);
-    animation-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+@media (prefers-reduced-motion: no-preference){
+  @keyframes springen {
+    0% {
+      transform:tanslateY(0);
+      animation-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    }
+
+    5% {
+      transform:translateY(0) scale(1.2, 0.8);
+    }  
+    
+    50%{
+      transform:translateY(-1em);
+      animation-timing-function:cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    }
+    
+    100% {
+      transform:tanslateY(0);
+    }  
   }
 
-  5% {
-    transform:translateY(0) scale(1.2, 0.8);
-  }  
-  
-  50%{
-    transform:translateY(-1em);
-    animation-timing-function:cubic-bezier(0.895, 0.030, 0.685, 0.220);
-  }
-  
-  100% {
-    transform:tanslateY(0);
-  }  
+  @keyframes schudden {
+    0%, 7% {
+      transform: rotateZ(0);
+    }
+    15% {
+      transform: rotateZ(-13deg);
+    }
+    20% {
+      transform: rotateZ(8deg);
+    }
+    25% {
+      transform: rotateZ(-8deg);
+    }
+    30% {
+      transform: rotateZ(4deg);
+    }
+    35% {
+      transform: rotateZ(-2deg);
+    }
+    40%, 100% {
+      transform: rotateZ(0);
+    }
 }
+
+
 
 
 
@@ -233,6 +251,7 @@ figcaption{
   opacity: 0;
 }
 
+/* Toon tekstwolk wanneer de muis over de smurf beweegt */
 figure:hover figcaption{
   opacity: 100%;
 }
