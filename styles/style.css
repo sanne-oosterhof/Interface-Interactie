@@ -95,7 +95,7 @@ button:not([disabled]) {
 }
 
 /* DONKER THEMA */
-.darkmode {
+:root.darkmode {
   --bg-color:#151515;
   --header-primary-color:#cc1c1c;
   --header-secondary-color:#767676;
@@ -119,6 +119,7 @@ header{
   position:fixed;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 	left:2em;
 	top:2em;
 	margin:0;
@@ -126,6 +127,7 @@ header{
 }
 
 header h1 {
+  display: flex;
   color:var(--header-primary-color);
   font-family: Smurf, Arial, Helvetica, sans-serif;
   font-size: 2.8em;
@@ -138,7 +140,6 @@ header h1 {
 /* voor het woord 'smurfen' */
 header h1 span{
   padding: 0;
-  margin: -.1em;
 }
 
 /* Beetje meer ruimte aan de linkerkant */
@@ -367,14 +368,12 @@ main ol{
   display:flex;
   align-items:end;
   width:475em;
-}
 
-.background-light {
   background-image: url('../images/achtergrondBos.png');
 }
 
 /* achtergrond aanpassen met dark mode */
-.background-dark {
+.darkmode main ol {
   background-image: url('../images/achtergrondBosDonker.png');
 }
 
@@ -457,7 +456,7 @@ main ol li:nth-of-type(1) figure img{
 }
 
 main ol li:nth-of-type(1) figure figcaption{
-    bottom: 17.5em;
+  bottom: 17.5em;
 }
 
 /* List item 2 */
@@ -470,7 +469,7 @@ main ol li:nth-of-type(2) figure img{
 }
 
 main ol li:nth-of-type(2) figure figcaption{
-    bottom: 16em;
+  bottom: 16em;
 }
 
 /* List item 3 */
@@ -483,7 +482,7 @@ main ol li:nth-of-type(3) figure img{
 }
 
 main ol li:nth-of-type(3) figure figcaption{
-    bottom: 16.6em;
+  bottom: 16.6em;
 }
 
 /* List item 4 */
@@ -493,7 +492,7 @@ main ol li:nth-of-type(4) figure img{
 }
 
 main ol li:nth-of-type(4) figure figcaption{
-    bottom: 13.9em;
+  bottom: 13.9em;
 }
 
 /* List item 5 */
@@ -515,7 +514,7 @@ main ol li:nth-of-type(5) figure img{
 }
 
 main ol li:nth-of-type(5) figure figcaption{
-    bottom: 15.8em;
+  bottom: 15.8em;
 }
 
 /* List item 6 */
@@ -528,7 +527,7 @@ main ol li:nth-of-type(6) figure img{
 }
 
 main ol li:nth-of-type(6) figure figcaption{
-    bottom: 15.2em;
+  bottom: 15.2em;
 }
 
 /* List item 7 */
@@ -538,10 +537,11 @@ main ol li:nth-of-type(7)>img{
 
 main ol li:nth-of-type(7) figure img{
   translate: 0 -4em;
+  filter: drop-shadow(-0.1em 0.25em .2em #0009);
 }
 
 main ol li:nth-of-type(7) figure figcaption{
-    bottom: 17.5em;
+  bottom: 17.5em;
 }
 
 /* List item 8 */
@@ -554,7 +554,7 @@ main ol li:nth-of-type(8) figure img{
 }
 
 main ol li:nth-of-type(8) figure figcaption{
-    bottom: 17em;
+  bottom: 17em;
 }
 
 
@@ -565,11 +565,19 @@ main ol li:nth-of-type(8) figure figcaption{
 /*    EXTRA'S ACHTERAAN   */
 /**************************/
 
-/* Smurfen achteraan  */
+/* gargamel */
 main ol li:nth-of-type(9) img:nth-of-type(1){
-  width: 6em;
+  width: 40em;
+  translate: 0 4em;
 }
 
+/* Smurfen achteraan  */
 main ol li:nth-of-type(9) img:nth-of-type(2){
+  width: 6em;
+  translate: 0 -1.5em;
+}
+
+main ol li:nth-of-type(9) img:nth-of-type(3){
   width: 11em;
+  translate: 0 -1em;
 }
