@@ -1,3 +1,7 @@
+/***************/
+/*    FONTS    */
+/***************/
+
 @font-face {
   font-family: "Smurf";
   src:
@@ -27,6 +31,7 @@
 /**************/
 /* CSS REMEDY */
 /**************/
+
 /* naar een idee van Jen Simmons */
 *, *::after, *::before {
   box-sizing:border-box;  
@@ -36,10 +41,37 @@ body {
   margin:0;
 	height:100vh;
 	width:100%;
+  overflow-y: hidden;
 }
 
 button:not([disabled]) {
   cursor:pointer;
+}
+
+
+
+
+
+/*********************/
+/*  CUSTOM SCROLBAR  */
+/*********************/
+
+/* bron: https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+/* breedtje */
+::-webkit-scrollbar {
+  height: .5em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--header-secondary-color);
+  border-radius: 0.625em;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--header-primary-color);
+  border-radius: 0.625em;
 }
 
 
@@ -76,123 +108,40 @@ button:not([disabled]) {
 }
 
 
-/* bron voor de toggle switch: https://www.w3schools.com/howto/howto_css_switch.asp  */
-header label {
-  position: relative;
-  display: inline-block;
-  width: 3.75em;
-  height: 2.125em;
-}
-
-/* Hide default HTML checkbox */
-header label input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-header label span{
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 2.125em;
-}
-
-header label span:before {
-  position: absolute;
-  content: "";
-  height: 1.625em;
-  width: 1.625em;
-  left: 0.25em;
-  bottom: 0.25em;
-  background-color: var(--bg-color);
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 50%;
-
-}
-
-input:checked + span {
-  background-color: var(--header-secondary-color);
-}
-
-input:focus + span  {
-  box-shadow: 0 0 1px var(--header-secondary-color);
-}
-
-input:checked + span:before {
-  -webkit-transform: translateX(1.625em);
-  -ms-transform: translateX(1.625em);
-  transform: translateX(1.625em);
-}
 
 
 
+/********************************************/
+/*    HEADER + h1 + animatie Surfen woord   */
+/********************************************/
 
-
-
-
-
-
-
-
-
-/********************/
-/*      HEADER      */
-/********************/
 header{
   position:fixed;
   display: flex;
 	left:2em;
 	top:2em;
 	margin:0;
+  width: 100%;
 }
 
-h1 {
+header h1 {
   color:var(--header-primary-color);
   font-family: Smurf, Arial, Helvetica, sans-serif;
   font-size: 2.5em;
   text-shadow: 2px 2px 0px var(--header-text-shadow);
   margin: 0;
+  width: 60%;
 }
 
-h1 span{
-  margin: 0;
+/* voor het woord 'smurfen' */
+header h1 span{
   padding: 0;
+  margin: -.1em;
 }
 
-/* muziek button met img en animatie */
-header section button{
-  background: var(--hover-button);
-  background-size: 200% 100%;
-  background-position: 100% 0%;
-	transition: .3s;
-
-  animation: schudden 2s linear ;
-  animation-delay: 7s;
-  display: flex;
-  align-items: center;
-  font-family: proximaNova, Arial, Helvetica, sans-serif;
-  padding: .2em 1.2em .2em .8em;
-  border-radius: 1em;
-  color: var(--text-color);
-  margin-left: 3em;
-}
-
-
-header section button:hover{
-	background-position: 0% 0%;
-  color: var(--text-color-light);
-}
-
-header section button img{
-  width: 4em;
+/* Beetje meer ruimte aan de linkerkant */
+header h1 span:nth-of-type(1){
+  margin-left: .25em;
 }
 
 /* animatie van het woord 'smurfen' */
@@ -227,6 +176,113 @@ header h1:hover span:nth-of-type(6) {
 header h1:hover span:nth-of-type(7) {
   animation-delay: .9s;
 }
+
+
+
+
+
+/**********************/
+/*    muziek button   */
+/**********************/
+
+header section button{
+  background: var(--hover-button);
+  background-size: 200% 100%;
+  background-position: 100% 0%;
+	transition: .3s;
+
+  animation: schudden 2s linear ;
+  animation-delay: 7s;
+  display: flex;
+  align-items: center;
+  font-family: proximaNova, Arial, Helvetica, sans-serif;
+  padding: .2em 1.2em .2em .8em;
+  border-radius: 1em;
+  color: var(--text-color);
+  margin-left: 3em;
+}
+
+header section button:hover{
+	background-position: 0% 0%;
+  color: var(--text-color-light);
+}
+
+header section button img{
+  width: 4em;
+}
+
+
+
+
+
+/*****************************/
+/*    Toggle -> dark mode    */
+/*****************************/
+
+/* bron voor de toggle switch: https://www.w3schools.com/howto/howto_css_switch.asp  */
+header section:nth-of-type(2) label {
+  position: relative;
+  display: inline-block;
+  width: 3.75em;
+  height: 2.125em;
+}
+
+/* de default HTML checkbox niet weergeven*/
+header section:nth-of-type(2) label input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+header section:nth-of-type(2) label span{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;                /*KLEUR AANPASSEN */
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 2.125em;
+}
+
+/* Het bolletje in de toggle */
+header section:nth-of-type(2) label span:before {
+  position: absolute;
+  content: "";
+  height: 1.625em;
+  width: 1.625em;
+  left: 0.25em;
+  bottom: 0.25em;
+  background-color: var(--bg-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+header section:nth-of-type(2) label input:checked + span {
+  background-color: var(--header-secondary-color);
+}
+
+header section:nth-of-type(2) label input:focus + span  {
+  box-shadow: 0 0 1px var(--header-secondary-color);
+}
+
+/* bolletje verplaatsen als deze aangeklikt wordt */
+header section:nth-of-type(2) label input:checked + span:before {
+  -webkit-transform: translateX(1.625em);
+  -ms-transform: translateX(1.625em);
+  transform: translateX(1.625em);
+}
+
+
+
+
+
+/*****************************/
+/*      HEADER KEYFRAMES     */
+/*****************************/
 
 @media (prefers-reduced-motion: no-preference){
   @keyframes springen {
@@ -281,8 +337,8 @@ header h1:hover span:nth-of-type(7) {
 /********************/
 /*       MAIN       */
 /********************/
+
 main ol{
-  background-image: url('../images/achtergrondBos.png');
   background-size:475em 180em;
   background-repeat:no-repeat;
   background-position:left bottom;
@@ -293,6 +349,15 @@ main ol{
   display:flex;
   align-items:end;
   width:475em;
+}
+
+.background-light {
+  background-image: url('../images/achtergrondBos.png');
+}
+
+/* achtergrond aanpassen met dark mode */
+.background-dark {
+  background-image: url('../images/achtergrondBosDonker.png');
 }
 
 main ol li{
@@ -308,6 +373,12 @@ main ol li>img{
 }
 
 
+
+
+
+/**********************/
+/*       FIGURE       */
+/**********************/
 
 /* Voor de smurfen en het tekstwolkje */
 figure{
@@ -330,11 +401,12 @@ figcaption{
   opacity: 0;
 }
 
-/* Toon tekstwolk wanneer de muis over de smurf beweegt */
+/* toon tekstwolk wanneer de muis over de smurf beweegt */
 figure:hover figcaption{
   opacity: 100%;
 }
 
+/* voor het driehoekje bij de tekstwolk  */
 figcaption::after{
   content: "";
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 100% 0);
@@ -345,12 +417,17 @@ figcaption::after{
   width: 1.5em;
   height:1.5em;
   transform: rotate(45deg) skew(20deg, 20deg);
-  border:solid 1px black;
+  border:solid 1px var(--border-color);
 }
 
 
 
-/* De huisjes, grote smurf en tekstwolk op de juiste plek */
+
+
+/**********************************/
+/*  ALLE LIST ITEMS POSITIONEREN  */
+/**********************************/
+
 /* List item 1 */
 main ol li:nth-of-type(1)>img{
   translate: 0 -4em;
@@ -401,8 +478,17 @@ main ol li:nth-of-type(4) figure figcaption{
 }
 
 /* List item 5 */
-main ol li:nth-of-type(5)>img{
+main ol li:nth-of-type(5)>img:nth-of-type(1){
   translate: 0 -2.3em;
+}
+
+main ol li:nth-of-type(5)>img:nth-of-type(2){
+  translate: -32em -2.3em;
+  opacity: 0;
+}
+
+main ol li:nth-of-type(5)>img:nth-of-type(2):hover{
+  opacity: 1;
 }
 
 main ol li:nth-of-type(5) figure img{
@@ -453,6 +539,12 @@ main ol li:nth-of-type(8) figure figcaption{
 }
 
 
+
+
+
+/**************************/
+/*    EXTRA'S ACHTERAAN   */
+/**************************/
 
 /* Smurfen achteraan  */
 main ol li:nth-of-type(9) img:nth-of-type(1){
