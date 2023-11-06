@@ -96,15 +96,15 @@ button:not([disabled]) {
 
 /* DONKER THEMA */
 .darkmode {
-  --bg-color:#FFFFFF;
-  --header-primary-color:#a40000;
+  --bg-color:#151515;
+  --header-primary-color:#cc1c1c;
   --header-secondary-color:#767676;
-  --header-text-shadow:#FFFFFF;
+  --header-text-shadow:#d5d5d5;
   --text-color-light: #ffffff;
-  --text-color: #1b1b1b;
-  --border-color:#1b1b1b;
-  --smurf-color-light:#afe3ff;
-  --hover-button: linear-gradient(90deg, rgba(15, 109, 198, 1) 0%, rgba(26, 133, 233, 1) 50%, rgba(194, 225, 255, 100) 50%, rgba(194, 225, 255, 100) 100%);
+  --text-color: #ffffff;
+  --border-color:#d5d5d5;
+  --smurf-color-light:#0055A4;
+  --hover-button: linear-gradient(90deg, rgba(2, 63, 120, 1) 0%, rgba(2, 63, 120, 1) 50%, rgba(0, 85, 164, 1)  50%, rgba(0, 85, 164, 1) 100%);
 }
 
 
@@ -118,6 +118,7 @@ button:not([disabled]) {
 header{
   position:fixed;
   display: flex;
+  justify-content: space-between;
 	left:2em;
 	top:2em;
 	margin:0;
@@ -127,10 +128,11 @@ header{
 header h1 {
   color:var(--header-primary-color);
   font-family: Smurf, Arial, Helvetica, sans-serif;
-  font-size: 2.5em;
+  font-size: 2.8em;
   text-shadow: 2px 2px 0px var(--header-text-shadow);
   margin: 0;
-  width: 60%;
+  height: 1.6em;
+  width: 8em;
 }
 
 /* voor het woord 'smurfen' */
@@ -199,7 +201,6 @@ header section button{
   padding: .2em 1.2em .2em .8em;
   border-radius: 1em;
   color: var(--text-color);
-  margin-left: 3em;
 }
 
 header section button:hover{
@@ -218,6 +219,23 @@ header section button img{
 /*****************************/
 /*    Toggle -> dark mode    */
 /*****************************/
+header section:nth-of-type(2){
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+  background-color: var(--bg-color);
+  padding: .5em 1em 1em 1em;
+  border-radius: 1em;
+  margin-right: 4em;
+  width: 9.5em;
+}
+
+header section:nth-of-type(2) P {
+  font-family: proximaNovaLight, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: var(--text-color);
+}
 
 /* bron voor de toggle switch: https://www.w3schools.com/howto/howto_css_switch.asp  */
 header section:nth-of-type(2) label {
@@ -394,6 +412,7 @@ figcaption{
   background-color: var(--bg-color);
   padding: 1.2em;
   border: solid var(--border-color) 1px;
+  color: var(--text-color);
   border-radius: 1.5em;
   position: absolute;
   bottom: 12em;

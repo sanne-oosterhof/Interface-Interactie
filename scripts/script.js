@@ -9,6 +9,8 @@ var geluid = document.querySelector("header section audio");
 var darkmodeToggle = document.querySelector("header section label input[type='checkbox']");
 var backgroundImage = document.querySelector("main ol.background-light");
 
+var darkmodeTekst = document.querySelector("header section:nth-of-type(2) p span")
+
 
 var speelAf = false;
 // Voor regel 7, 13 en 21 bron ChatGPT, voor prompt zie miro
@@ -34,4 +36,11 @@ darkmodeToggle.addEventListener("change", switchTheme);
 function switchTheme(){
   body.classList.toggle("darkmode");
   backgroundImage.classList.toggle("background-dark");
+  
+  // bron voor tekst toggle: https://www.w3schools.com/howto/howto_js_toggle_text.asp 
+  if (darkmodeToggle.checked) {
+    darkmodeTekst.textContent = "Aan";
+  } else {
+    darkmodeTekst.textContent = "Uit";
+  }
 }
