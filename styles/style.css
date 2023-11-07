@@ -42,6 +42,7 @@ body {
 	height:100vh;
 	width:100%;
   overflow-y: hidden;
+  cursor: url('../images/cursorNormaal.png'), auto;
 }
 
 button:not([disabled]) {
@@ -64,16 +65,21 @@ button:not([disabled]) {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px var(--header-secondary-color);
+  box-shadow: inset 0 0 5px var(--bg-color-gras);
   border-radius: 0.625em;
+  cursor: url('../images/cursorNormaal.png'), auto;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--header-primary-color);
   border-radius: 0.625em;
+  cursor: url('../images/cursorPointer.png'), auto;
 }
 
+::-webkit-scrollbar-thumb:hover {
+  background: var(--smurf-color-light);
+}
 
 
 
@@ -84,26 +90,31 @@ button:not([disabled]) {
 
 :root {
   --bg-color:#FFFFFF;
+  --bg-color-gras: #ACBD3D;
   --header-primary-color:#0055A4;
   --header-secondary-color:#767676;
   --header-text-shadow:#FFFFFF;
+  --img-shadow: #0009;
   --text-color-light: #ffffff;
   --text-color: #1b1b1b;
   --border-color:#1b1b1b;
-  --smurf-color-light:#afe3ff;
+  --smurf-color-light:#63b2f9;
   --hover-button: linear-gradient(90deg, rgba(15, 109, 198, 1) 0%, rgba(26, 133, 233, 1) 50%, rgba(194, 225, 255, 100) 50%, rgba(194, 225, 255, 100) 100%);
 }
+
 
 /* DONKER THEMA */
 :root.darkmode {
   --bg-color:#151515;
+  --bg-color-gras: #787c2c;
   --header-primary-color:#cc1c1c;
   --header-secondary-color:#767676;
   --header-text-shadow:#d5d5d5;
+  --img-shadow: #0009;
   --text-color-light: #ffffff;
   --text-color: #ffffff;
   --border-color:#d5d5d5;
-  --smurf-color-light:#0055A4;
+  --smurf-color-light:#f03a3a;
   --hover-button: linear-gradient(90deg, rgba(2, 63, 120, 1) 0%, rgba(2, 63, 120, 1) 50%, rgba(0, 85, 164, 1)  50%, rgba(0, 85, 164, 1) 100%);
 }
 
@@ -200,18 +211,39 @@ header section button{
   align-items: center;
   font-family: proximaNova, Arial, Helvetica, sans-serif;
   padding: .2em 1.2em .2em .8em;
-  border-radius: 1em;
+  border-radius: .8em;
   color: var(--text-color);
+
+	transform:translatey(-.5em);
+	
+	appearance:none;
+	border:none;
+	box-shadow:0 .5em 0 #333;		
 }
 
-header section button:hover{
-	background-position: 0% 0%;
-  color: var(--text-color-light);
-}
 
 header section button img{
   width: 4em;
 }
+
+/* Bron voor button states: https://codepen.io/shooft/pen/eYKdyxY?editors=1100 */
+header section button:hover{
+	background-position: 0% 0%;
+  color: var(--text-color-light);
+  cursor: url('../images/cursorPointer.png'), auto;
+}
+
+header section button:focus-visible{
+  transform:translatey(-.75em);
+	outline: none;
+	box-shadow:0 .75em 0 var(--border-color);
+}
+
+header section button:active{
+  transform:translatey(0);
+	box-shadow: 0 0 0 var(--border-color);
+}
+
 
 
 
@@ -248,9 +280,11 @@ header section:nth-of-type(2) label {
 
 /* de default HTML checkbox niet weergeven*/
 header section:nth-of-type(2) label input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  /* opacity: 0; */
+  /* width: 0; */
+  /* height: 0; */
+  position: absolute;
+  left:-9999em;
 }
 
 header section:nth-of-type(2) label span{
@@ -264,6 +298,11 @@ header section:nth-of-type(2) label span{
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 2.125em;
+}
+
+/* cursor aanpassen bij hover  */
+header section:nth-of-type(2) label span:hover{
+  cursor: url('../images/cursorPointer.png'), auto;
 }
 
 /* Het bolletje in de toggle */
@@ -285,8 +324,10 @@ header section:nth-of-type(2) label input:checked + span {
 }
 
 header section:nth-of-type(2) label input:focus + span  {
-  box-shadow: 0 0 1px var(--header-secondary-color);
+  box-shadow: 0 0 0 .2em var(--header-primary-color);
+
 }
+
 
 /* bolletje verplaatsen als deze aangeklikt wordt */
 header section:nth-of-type(2) label input:checked + span:before {
@@ -406,6 +447,11 @@ figure img{
   width: 6.5em;
 }
 
+figure:focus img{
+  filter: drop-shadow(-0.1em 0.25em .2em var(--img-shadow));
+  /* outline: none; Werkt niet, ligt aan windows */
+}
+
 figcaption{
   font-family: proximaNovaLight, Arial, Helvetica, sans-serif;
   background-color: var(--bg-color);
@@ -420,7 +466,8 @@ figcaption{
 }
 
 /* toon tekstwolk wanneer de muis over de smurf beweegt */
-figure:hover figcaption{
+figure:hover figcaption, 
+figure:focus figcaption{
   opacity: 100%;
 }
 
@@ -524,6 +571,7 @@ main ol li:nth-of-type(6)>img{
 
 main ol li:nth-of-type(6) figure img{
   translate: 0 -1.5em;
+  filter: drop-shadow(-0.1em 0.2em .2em var(--img-shadow));
 }
 
 main ol li:nth-of-type(6) figure figcaption{
@@ -537,7 +585,7 @@ main ol li:nth-of-type(7)>img{
 
 main ol li:nth-of-type(7) figure img{
   translate: 0 -4em;
-  filter: drop-shadow(-0.1em 0.25em .2em #0009);
+  filter: drop-shadow(-0.1em 0.25em .2em var(--img-shadow));
 }
 
 main ol li:nth-of-type(7) figure figcaption{
@@ -547,10 +595,13 @@ main ol li:nth-of-type(7) figure figcaption{
 /* List item 8 */
 main ol li:nth-of-type(8)>img{
   translate: 0 -2em;
+  filter: drop-shadow(-0.1em 0.2em .2em var(--img-shadow));
+
 }
 
 main ol li:nth-of-type(8) figure img{
   translate: 0 -3em;
+  filter: drop-shadow(-0.1em 0.2em .17em var(--img-shadow));
 }
 
 main ol li:nth-of-type(8) figure figcaption{
