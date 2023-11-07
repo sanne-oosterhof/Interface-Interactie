@@ -4,7 +4,7 @@ console.log("Howdy!");
 var body = document.querySelector("body");
 
 // variabelen voor muziekbutton
-// Voor regel 11, 20 en 30 bron ChatGPT, voor prompt zie miro
+// Voor geluid deels als bron ChatGPT, voor prompt zie miro
 var geluidButton = document.querySelector("header section button");
 var geluidImg = document.querySelector("header section button img");
 var geluid = document.querySelector("header section audio");
@@ -15,9 +15,19 @@ var darkmodeTekst = document.querySelector("header section:nth-of-type(2) p span
 var darkmodeToggle = document.querySelector("header section label input[type='checkbox']");
 var backgroundImage = document.querySelector("main ol.background-light");
 
-// Voor muziek button 
+// Variabelen voor extra's achteraan 
+var smurfNietButton = document.querySelector("main ol li button:nth-of-type(1)");
+var smurfWelButton = document.querySelector("main ol li button:nth-of-type(2)");
+var smurfImgMetLiaan = document.querySelector("main ol li:nth-of-type(9) img:nth-of-type(1)");
+var gargamelImg = document.querySelector("main ol li:nth-of-type(10) img");
+var normaleSmurf = document.querySelector("main ol li:nth-of-type(9) img:nth-of-type(2)");
+
+// Voor muziek button, darkmode en extra's
 geluidButton.onclick = smurfIntro;
 darkmodeToggle.addEventListener("change", switchTheme);
+smurfNietButton.addEventListener("click", gargamelMaaktKapot)
+smurfWelButton.addEventListener("click", smurfSwingen)
+
 
 // functie voor muziekbutton 
 function smurfIntro() {
@@ -42,4 +52,13 @@ function switchTheme(){
   } else {
     darkmodeTekst.textContent = "Uit";
   }
+}
+
+function gargamelMaaktKapot(){
+  gargamelImg.classList.add("gargamelLopen");
+  normaleSmurf.classList.add("smurfPlat");
+}
+
+function smurfSwingen(){
+  smurfImgMetLiaan.classList.toggle("smurfSwingen");
 }
