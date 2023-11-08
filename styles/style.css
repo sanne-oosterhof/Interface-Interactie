@@ -632,7 +632,6 @@ main ol li:nth-of-type(8) figure figcaption{
 main ol li:nth-of-type(9){
   width: 50em;
   translate: 0 -2em;
-
 }
 
 
@@ -652,6 +651,7 @@ main ol li button:nth-of-type(1){
   animation: schudden 2s linear;
   animation-delay: 15s;
   margin-right: 1.5em;
+  width: 10em;
 }
 
 /* Bron voor button states: https://codepen.io/shooft/pen/eYKdyxY?editors=1100 */
@@ -677,6 +677,8 @@ main ol li button:nth-of-type(2){
   background-size: 200% 100%;
   background-position: 100% 0%;
   color: var(--text-color);	
+  width: 10em;
+
 }
 
 main ol li button:nth-of-type(2):hover{
@@ -724,16 +726,134 @@ main ol li:nth-of-type(10) img{
   opacity: 0;
 }
 
-/* deze classes toevoegen als er op de NIET smurfen knop wordt geklikt  */
-.gargamelLopen{
+/* deze classes toevoegen als er op de NIET smurfen knop wordt geklikt, om alle smurfen plat te stampen */
+body.gargamelLopen main ol li:nth-of-type(10) img{
   animation: gargamel 12s ease-in;
   animation-fill-mode: forwards;
 }
 
-.smurfPlat{
-  animation: smurfPlatstampen .5s ease-in-out;
+/* twee losse smurfen plat  */
+body.gargamelLopen main ol li:nth-of-type(9) img:nth-of-type(3){
+  animation: smurfPlatstampen .1s ease-in-out;
   animation-fill-mode: forwards;
   animation-delay: 2.5s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(9) img:nth-of-type(2){
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+}
+
+/* list item 8 plat uit 2017*/
+body.gargamelLopen main ol li:nth-of-type(8)>img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 4.5s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(8) figure img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 5s;
+}
+
+/* list item 7 plat uit 2013 */
+body.gargamelLopen main ol li:nth-of-type(7)>img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 5.8s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(7) figure img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 6.2s;
+}
+
+/* list item 6 plat uit 2011 */
+body.gargamelLopen main ol li:nth-of-type(6)>img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 6.7s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(6) figure img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 7s;
+}
+
+/* list item 5 plat uit 1981 */
+body.gargamelLopen main ol li:nth-of-type(5)>img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 7.6s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(5) figure img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 8.1s;
+}
+
+/* list item 4 plat uit 1975 */
+body.gargamelLopen main ol li:nth-of-type(4)>img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 8.5s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(4) figure img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 9s;
+}
+
+/* list item 3 plat uit 1960 */
+body.gargamelLopen main ol li:nth-of-type(3)>img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 9.5s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(3) figure img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 9.8s;
+}
+
+/* list item 2 plat uit 1959 */
+body.gargamelLopen main ol li:nth-of-type(2)>img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 10.2s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(2) figure img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 10.6s;
+}
+
+/* list item 2 plat uit 1958 */
+body.gargamelLopen main ol li:nth-of-type(1)>img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 10.9s;
+}
+
+body.gargamelLopen main ol li:nth-of-type(1) figure img{
+  animation: smurfPlatstampen .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 11.3s;
+}
+
+/* smurfin weg wanneer er op NIET smurfen button wordt geklikt  */
+body.gargamelLopen main ol li:nth-of-type(9) img:nth-of-type(1){
+  animation: smurfinWeg .1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 3.3s;
 }
 
 /* deze class toevoegen als er op de WEL smurfen knop wordt geklikt  */
@@ -764,29 +884,41 @@ main ol li:nth-of-type(10) img{
   /* smurf plat stampen als gargamel eroverheen loopt  */
   @keyframes smurfPlatstampen{
     0% {
-      transform: scaleX(1);
+      transform: perspective(30em) rotateX(0deg) scale(1, 1);
     }
     100% {
-      transform: scaleX(2);
-      transform: scaleY(.5);
+      transform: perspective(30em) rotateX(60deg) scale(1.2, 1);
     }
   }
+
+  @keyframes smurfinWeg{
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
 
   /* Smurfin met liaan laten swingen */
   @keyframes swing{
     0% {
       transform:rotate(0deg);
-      animation-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+      animation-timing-function:ease-out;
     }
     25% {
       transform:rotate(35deg);
+      animation-timing-function:ease-in;
     }
     50% {
       transform:rotate(0deg);
-      animation-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+      animation-timing-function:ease-out;
     }
     75% {
       transform:rotate(-35deg);
+      animation-timing-function:ease-in;
+
     }
     100% {
       transform:rotate(0deg);

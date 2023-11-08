@@ -1,8 +1,5 @@
 console.log("Howdy!");
 
-// variabele voor body 
-var body = document.querySelector("body");
-
 // variabelen voor muziekbutton
 // Voor geluid deels als bron ChatGPT, voor prompt zie miro
 var geluidButton = document.querySelector("header section button");
@@ -55,8 +52,10 @@ function switchTheme(){
 }
 
 function gargamelMaaktKapot(){
-  gargamelImg.classList.add("gargamelLopen");
-  normaleSmurf.classList.add("smurfPlat");
+  document.body.classList.add("gargamelLopen");
+  smurfNietButton.textContent = "Dit is allemaal jouw schuld!";
+  smurfWelButton.textContent = "Verkeerde knop gesmurft";
+
 }
 
 function smurfSwingen(){
