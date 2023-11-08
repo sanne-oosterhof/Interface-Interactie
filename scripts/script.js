@@ -1,5 +1,6 @@
 console.log("Howdy!");
 
+// VARIABELEN 
 // variabelen voor muziekbutton
 // Voor geluid deels als bron ChatGPT, voor prompt zie miro
 var geluidButton = document.querySelector("header section button");
@@ -19,6 +20,8 @@ var smurfImgMetLiaan = document.querySelector("main ol li:nth-of-type(9) img:nth
 var gargamelImg = document.querySelector("main ol li:nth-of-type(10) img");
 var normaleSmurf = document.querySelector("main ol li:nth-of-type(9) img:nth-of-type(2)");
 
+
+
 // Voor muziek button, darkmode en extra's
 geluidButton.onclick = smurfIntro;
 darkmodeToggle.addEventListener("change", switchTheme);
@@ -26,7 +29,9 @@ smurfNietButton.addEventListener("click", gargamelMaaktKapot)
 smurfWelButton.addEventListener("click", smurfSwingen)
 
 
-// functie voor muziekbutton 
+
+// FUNCTIES 
+// Voor muziekbutton 
 function smurfIntro() {
   if (speelAf) {
     geluid.pause();
@@ -38,7 +43,7 @@ function smurfIntro() {
   speelAf = !speelAf;
 }
 
-// Functie voor darkmode en alles wat daarmee verandert 
+// Voor darkmode en alles wat daarmee verandert 
 function switchTheme(){
   document.documentElement.classList.toggle("darkmode");
   backgroundImage.classList.toggle("background-dark");
@@ -55,7 +60,6 @@ function gargamelMaaktKapot(){
   document.body.classList.add("gargamelLopen");
   smurfNietButton.textContent = "Dit is allemaal jouw schuld!";
   smurfWelButton.textContent = "Verkeerde knop gesmurft";
-
 }
 
 function smurfSwingen(){

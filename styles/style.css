@@ -465,7 +465,7 @@ figure img{
 
 figure:focus img{
   filter: drop-shadow(-0.1em 0.25em .2em var(--img-shadow));
-  /* outline: none; Werkt niet, ligt aan windows */
+  /* outline: none; Werkt niet, ligt aan windows -> quinten */
 }
 
 /* tekst in tekswolk  */
@@ -707,7 +707,7 @@ main ol li:nth-of-type(9) img:nth-of-type(1){
   translate: -7em -13em;
 }
 
-/* Smurfen achteraan  */
+/* 2 smurfen achteraan  */
 main ol li:nth-of-type(9) img:nth-of-type(2){
   width: 6em;
   translate: 0 -1.7em;
@@ -718,7 +718,7 @@ main ol li:nth-of-type(9) img:nth-of-type(3){
   translate: 0 -1em;
 }
 
-/* gargamel */
+/* Gargamel */
 main ol li:nth-of-type(10) img{
   z-index: 1;
   width: 50em;
@@ -726,7 +726,12 @@ main ol li:nth-of-type(10) img{
   opacity: 0;
 }
 
-/* deze classes toevoegen als er op de NIET smurfen knop wordt geklikt, om alle smurfen plat te stampen */
+
+/*****************************/
+/*   GARGAMEL MAAKT KAPOT    */
+/*****************************/
+
+/* deze classes toevoegen als er op de NIET smurfen knop wordt geklikt, van links naar rechts */
 body.gargamelLopen main ol li:nth-of-type(10) img{
   animation: gargamel 12s ease-in;
   animation-fill-mode: forwards;
@@ -899,7 +904,6 @@ body.gargamelLopen main ol li:nth-of-type(9) img:nth-of-type(1){
       opacity: 0;
     }
   }
-
 
   /* Smurfin met liaan laten swingen */
   @keyframes swing{
