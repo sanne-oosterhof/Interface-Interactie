@@ -126,9 +126,9 @@ button:not([disabled]) {
 
 
 
-/********************************************/
-/*    HEADER + h1 + animatie Surfen woord   */
-/********************************************/
+/*****************************************************/
+/*    HEADER + h1 + Button + animatie Surfen woord   */
+/*****************************************************/
 
 header{
   position:fixed;
@@ -199,6 +199,23 @@ header h1:hover span:nth-of-type(7) {
   animation-delay: .9s;
 }
 
+button{
+  font-family: proximaNova, Arial, Helvetica, sans-serif;
+
+  display: flex;
+  align-items: center;
+
+  appearance:none;
+	border:none;
+
+  box-shadow:0 .5em 0 var(--box-shadow);		
+  transform:translatey(-.5em);
+  padding: .6em .8em .6em .8em;
+  border-radius: .8em;
+  transition: .3s;
+}
+
+
 
 
 
@@ -208,23 +225,12 @@ header h1:hover span:nth-of-type(7) {
 /**********************/
 
 header section button{
-  font-family: proximaNova, Arial, Helvetica, sans-serif;
   color: var(--text-color);
 
   background: var(--hover-button);
   background-size: 200% 100%;
   background-position: 100% 0%;
-	transition: .3s;
-
-  display: flex;
-  align-items: center;
-
   padding: .2em 1.2em .2em .8em;
-  border-radius: .8em;
-	border:none;
-  box-shadow:0 .5em 0 var(--box-shadow);		
-  transform:translatey(-.5em);
-  appearance:none;
 
   animation: schudden 2s linear ;
   animation-delay: 7s;
@@ -622,6 +628,14 @@ main ol li:nth-of-type(8) figure figcaption{
   bottom: 17em;
 }
 
+/* list item 9 -> de losse smrufen*/
+main ol li:nth-of-type(9){
+  width: 50em;
+  translate: 0 -2em;
+
+}
+
+
 
 
 
@@ -633,22 +647,11 @@ main ol li:nth-of-type(8) figure figcaption{
 /* SMURF NIET button  */
 main ol li button:nth-of-type(1){
   background: var(--error-color);
-  width: 18em;
+  color: var(--text-color-light);
 
   animation: schudden 2s linear;
   animation-delay: 15s;
-
-  font-family: proximaNova, Arial, Helvetica, sans-serif;
-  padding: .2em 1.2em .2em .8em;
-  border-radius: .8em;
-  color: var(--text-color-light);
-  transition: .3s;
-
-	transform:translatey(-.5em);
-	
-	appearance:none;
-	border:none;
-	box-shadow:0 .5em 0 var(--box-shadow);	        
+  margin-right: 1.5em;
 }
 
 /* Bron voor button states: https://codepen.io/shooft/pen/eYKdyxY?editors=1100 */
@@ -673,19 +676,7 @@ main ol li button:nth-of-type(2){
   background: var(--hover-button);
   background-size: 200% 100%;
   background-position: 100% 0%;
-	transition: .3s;
-  display: flex;
-  align-items: center;
-  font-family: proximaNova, Arial, Helvetica, sans-serif;
-  padding: .2em 1.2em .2em .8em;
-  border-radius: .8em;
-  color: var(--text-color);
-
-	transform:translatey(-.5em);
-	
-	appearance:none;
-	border:none;
-	box-shadow:0 .5em 0 var(--box-shadow);		      
+  color: var(--text-color);	
 }
 
 main ol li button:nth-of-type(2):hover{
@@ -705,22 +696,19 @@ main ol li button:nth-of-type(2):active{
 	box-shadow: 0 0 0 var(--border-color);
 }
 
-
-
-/* Lily smurf aan liaan met animatie*/
+/* Smurfin aan liaan met animatie*/
 main ol li:nth-of-type(9) img:nth-of-type(1){
   width: 12em;
   margin-left: 4em;
-  /* animation: swing 2s ease-in-out infinite; */
   transform-origin: top;
   z-index: 1;
-  translate: -7em -16em;
+  translate: -7em -13em;
 }
 
 /* Smurfen achteraan  */
 main ol li:nth-of-type(9) img:nth-of-type(2){
   width: 6em;
-  translate: 0 -1.5em;
+  translate: 0 -1.7em;
 }
 
 main ol li:nth-of-type(9) img:nth-of-type(3){
@@ -732,7 +720,7 @@ main ol li:nth-of-type(9) img:nth-of-type(3){
 main ol li:nth-of-type(10) img{
   z-index: 1;
   width: 50em;
-  translate: 7em 6em;
+  translate: -8em 6em;
   opacity: 0;
 }
 
